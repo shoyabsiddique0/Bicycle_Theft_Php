@@ -1,11 +1,12 @@
 <?php
-require_once 'models/Bicycle.php';
-require_once 'models/User.php';
+require_once '../../models/Bicycle.php';
+require_once '../../models/User.php';
 
 class BicycleController
 {
     private $bicycleModel;
     private $userModel;
+    public $bicycles;
 
     public function __construct($db)
     {
@@ -43,7 +44,7 @@ class BicycleController
             if ($success) {
                 // Bicycle registration successful
                 // Redirect to the bicycle list page or show a success message
-                header('Location: list_bicycles.php');
+                header('Location: list.php');
                 exit;
             } else {
                 // Bicycle registration failed
@@ -53,13 +54,13 @@ class BicycleController
         }
 
         // Render the bicycle registration view
-        require_once 'views/bicycles/register.php';
+        require_once '../../views/bicycle/register.php';
     }
 
     public function listBicycles()
     {
         // Check if the user is logged in
-        session_start();
+        // session_start();
         if (!isset($_SESSION['user_id'])) {
             // Redirect to the login page if the user is not logged in
             header('Location: login.php');
@@ -70,9 +71,15 @@ class BicycleController
         $userId = $_SESSION['user_id'];
 
         // Call the appropriate method from the Bicycle model to retrieve the user's bicycles
-        $bicycles = $this->bicycleModel->getBicyclesByUser($userId);
+        $this->bicycles = $this->bicycleModel->getBicyclesByUser($userId);
+        $result1 = $this->bicycles[0]['brand'];
+        $_SESSION['bicycles'] = $this->bicycles;
+        // foreach ($bicycles as $bicycle) {
+        //     $name->$bicycle['brand'];
+            // echo "<script>alert('$bicycles[0][brand]')</script>";
+        // }
 
         // Pass the bicycle data to the view for rendering
-        require_once 'views/bicycles/list.php';
+        // require_once '../../views/bicycle/list.php';
     }
 }

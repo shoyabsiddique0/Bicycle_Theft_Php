@@ -1,7 +1,7 @@
 <?php
-require_once 'models/StolenBicycle.php';
-require_once 'models/Bicycle.php';
-require_once 'models/User.php';
+require_once '../../models/StolenBicycle.php';
+require_once '../../models/Bicycle.php';
+require_once '../../models/User.php';
 
 class ReportController
 {
@@ -42,18 +42,20 @@ class ReportController
 
             // Check if the bicycle belongs to the logged-in user
             $bicycle = $this->bicycleModel->getBicycleById($bicycleId);
-            if ($bicycle && $bicycle['user_id'] == $userId) {
+            echo $_SESSION['bicycle'][0]['user_id'];
+            if ($bicycle && $_SESSION['bicycle'][0]['user_id'] == $_SESSION['user_id']) {
                 // Call the appropriate method from the StolenBicycle model to report the theft
                 $success = $this->stolenBicycleModel->reportStolenBicycle($bicycleId, $reportedAddress);
 
                 if ($success) {
                     // Stolen bicycle report successful
                     // Redirect to the report list page or show a success message
-                    header('Location: list_reports.php');
+                    header('Location: list.php');
                     exit;
                 } else {
                     // Stolen bicycle report failed
                     $error = 'Failed to report stolen bicycle. Please try again.';
+                    echo $error;
                     // Pass the error message to the report view
                 }
             } else {
@@ -64,7 +66,7 @@ class ReportController
         }
 
         // Render the report stolen bicycle view
-        require_once 'views/reports/create.php';
+        require_once '../../views/reports/create.php';
     }
 
     public function listStolenBicycleReports()

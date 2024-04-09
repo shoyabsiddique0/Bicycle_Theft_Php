@@ -22,9 +22,12 @@ class StolenBicycle
         $query = "SELECT sb.id, sb.report_date, sb.status, b.brand, b.model, b.color, b.serial_number, u.username
                   FROM stolen_bicycles sb
                   JOIN bicycles b ON sb.bicycle_id = b.id
-                  JOIN users u ON b.user_id = u.id";
+                  JOIN users u ON b.user_id = u.id
+                  WHERE u.id = ".$_SESSION['user_id'];
         $result = $this->conn->query($query);
-        return $result->fetch_all(MYSQLI_ASSOC);
+        $data = $result->fetch_all(MYSQLI_ASSOC);
+        $_SESSION['stolen_bicycle'] = $data;
+        return $data;
     }
 
     // Add other methods for updating status, etc.

@@ -26,6 +26,7 @@ class UserController
                 session_start();
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['role'] = $user['role'];
+                $_SESSION['first_name'] = $user['first_name'];
 
                 // Redirect to the dashboard or desired page
                 header('Location: dashboard.php');
@@ -33,6 +34,7 @@ class UserController
             } else {
                 // User authentication failed
                 $error = 'Invalid username or password';
+                echo "<script>alert('$error')</script>";
                 // Pass the error message to the login view
             }
         }

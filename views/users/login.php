@@ -10,6 +10,7 @@ if (isset($_SESSION['user_id'])) {
 
 // Include the User controller
 require_once '../../controllers/UserController.php';
+require_once '../../config/config.php';
 $userController = new UserController($conn);
 
 // Handle the login logic

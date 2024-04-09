@@ -17,7 +17,7 @@ $userController = new UserController($conn);
 $userController->register();
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
     <title>Register</title>
