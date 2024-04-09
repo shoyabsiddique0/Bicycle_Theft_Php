@@ -20,7 +20,11 @@ class UserController
 
             // Call the appropriate method from the User model to authenticate the user
             $user = $this->userModel->findByUsername($username);
-
+            $pass = $user['password'];
+            $passn = password_hash($password, PASSWORD_DEFAULT);
+            $usern = $user['username'];
+            echo "<script>alert('$pass, $passn');</script>";
+            echo "<script>alert('$usern, $username');</script>";
             if ($user && password_verify($password, $user['password'])) {
                 // User authentication successful
                 session_start();
@@ -29,7 +33,15 @@ class UserController
                 $_SESSION['first_name'] = $user['first_name'];
 
                 // Redirect to the dashboard or desired page
-                header('Location: dashboard.php');
+                if($user['role'] == 'public'){
+
+                    header('Location: dashboard.php');
+                }
+                else if($user['role'] == 'admin'){
+                    header('Location: ../admin/dashboard.php');
+                }else{
+                    header('Location:../police/dashboard.php');
+                }
                 exit;
             } else {
                 // User authentication failed

@@ -35,7 +35,7 @@ $first_name = $_SESSION['first_name'];
                     <li><a href="list-reports">View Reported Stolen Bicycles</a></li>
                 <?php } ?>
                 <?php if ($role === 'admin') { ?>
-                    <li><a href="enroll-police">Enroll Police Officers</a></li>
+                    <li><a href="../admin/enroll_officer.php">Enroll Police Officers</a></li>
                 <?php } ?>
                 <li><a href="logout.php">Logout</a></li>
             </ul>

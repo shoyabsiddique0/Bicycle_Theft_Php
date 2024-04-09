@@ -56,3 +56,5 @@ CREATE TABLE IF NOT EXISTS enrolled_police (
     FOREIGN KEY (officer_id) REFERENCES users(id),
     FOREIGN KEY (admin_id) REFERENCES users(id)
 );
+
+INSERT INTO users(username, email, first_name, last_name, address_1, contact, password, role) values('admin','admin@example.com','Admin','User','Admin Address','1234567890','$2y$10$QDU77bq0FxyoCPHg/PV0COnU0PNMgbVQLuemTUxLo4rfZ/HDoC6AG','admin');
