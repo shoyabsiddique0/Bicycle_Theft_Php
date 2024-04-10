@@ -27,7 +27,7 @@ $data = $_SESSION['stolen_bicycle'];
 <head>
     <title>Reported Stolen Bicycles</title>
     <!-- Include your CSS file -->
-    <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="../../public/css/styles.css">
 </head>
 <body>
     <div class="container">

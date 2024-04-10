@@ -14,7 +14,7 @@ $enrolledOfficers = $_SESSION['enrolled_police'];
 <head>
     <title>Enrolled Officers</title>
     <!-- Include your CSS file -->
-    <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="../../public/css/styles.css">
 </head>
 <body>
     <div class="container">
@@ -42,6 +42,6 @@ $enrolledOfficers = $_SESSION['enrolled_police'];
     </div>
 
     <!-- Include your JavaScript file -->
-    <script src="public/js/scripts.js"></script>
+    <script src="../../public/js/scripts.js"></script>
 </body>
 </html>

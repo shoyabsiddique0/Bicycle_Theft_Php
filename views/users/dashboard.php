@@ -18,7 +18,7 @@ $first_name = $_SESSION['first_name'];
 <head>
     <title>Dashboard</title>
     <!-- Include your CSS file -->
-    <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="../../public/css/styles.css">
 </head>
 <body>
     <div class="container">

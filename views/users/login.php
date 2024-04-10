@@ -7,7 +7,7 @@ if (isset($_SESSION['user_id'])) {
     header('Location: dashboard.php');
     exit;
 }
-
+include '../layouts/header.php';
 // Include the User controller
 require_once '../../controllers/UserController.php';
 require_once '../../config/config.php';
@@ -22,7 +22,7 @@ $userController->login();
 <head>
     <title>Login</title>
     <!-- Include your CSS file -->
-    <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="../../public/css/styles.css">
 </head>
 <body>
     <div class="container">
@@ -48,5 +48,8 @@ $userController->login();
 
     <!-- Include your JavaScript file -->
     <script src="public/js/scripts.js"></script>
+    <?php
+    include '../layouts/footer.php';
+    ?>
 </body>
 </html>

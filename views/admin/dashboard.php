@@ -18,7 +18,7 @@ $first_name = $_SESSION['first_name'];
 <head>
     <title>Admin Dashboard</title>
     <!-- Include your CSS file -->
-    <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="../../public/css/styles.css">
 </head>
 <body>
     <div class="container">
@@ -36,6 +36,6 @@ $first_name = $_SESSION['first_name'];
     </div>
 
     <!-- Include your JavaScript file -->
-    <script src="public/js/scripts.js"></script>
+    <script src="../../public/js/scripts.js"></script>
 </body>
 </html>

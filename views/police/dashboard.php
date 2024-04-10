@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'police') {
     header('Location: login.php');
     exit;
 }
-
+include '../layouts/header.php';
 // Get the police officer's first name
 $first_name = $_SESSION['first_name'];
 ?>
@@ -17,7 +17,7 @@ $first_name = $_SESSION['first_name'];
 <head>
     <title>Police Dashboard</title>
     <!-- Include your CSS file -->
-    <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="../../public/css/styles.css">
 </head>
 <body>
     <div class="container">
@@ -27,7 +27,7 @@ $first_name = $_SESSION['first_name'];
             <ul>
                 <li><a href="view_reports.php">View Reported Stolen Bicycles</a></li>
                 <li><a href="update_status.php">Update Investigation Status</a></li>
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="../users/logout.php">Logout</a></li>
             </ul>
         </nav>
         <div class="content">
@@ -60,5 +60,8 @@ $first_name = $_SESSION['first_name'];
 
     <!-- Include your JavaScript file -->
     <script src="public/js/scripts.js"></script>
+    <?php
+        include '../layouts/footer.php';
+    ?>
 </body>
 </html>
