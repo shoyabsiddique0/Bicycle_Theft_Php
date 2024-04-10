@@ -79,19 +79,21 @@ $reports = $policeController->fetchReportedBicycles($filter);
             <td>
                 <form action="update_status.php" method="post">
   <input type="hidden" name="report_id" value="<?php echo $report['id']; ?>">
-  <select name="new_status">
+  <div style="display: flex; flex-direction: row; gap: 20px">
+    <select name="new_status">
     <option value="reported" <?php if ($report['status'] === 'reported') echo 'selected'; ?>>Reported</option>
     <option value="under investigation" <?php if ($report['status'] === 'under investigation') echo 'selected'; ?>>Under Investigation</option>
     <option value="recovered" <?php if ($report['status'] === 'recovered') echo 'selected'; ?>>Recovered</option>
   </select>
   <button type="submit">Update Status</button>
-</form>
-                                       </td>
-            </tr>
-            <?php } ?>
-      </tbody>
-    </table>
   </div>
+    </form>
+      </td>
+        </tr>
+          <?php } ?>
+        </tbody>
+      </table>
+    </div>
 
     <script src="../../public/js/scripts.js"></script>
   
