@@ -8,6 +8,9 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'police') {
     exit;
 }
 include '../layouts/header.php';
+require_once '../../controllers/PoliceController.php';
+require_once '../../config/config.php';
+$policeController = new PoliceController($conn);
 // Get the police officer's first name
 $first_name = $_SESSION['first_name'];
 ?>
@@ -30,22 +33,24 @@ $first_name = $_SESSION['first_name'];
                 <li><a href="../users/logout.php">Logout</a></li>
             </ul>
         </nav>
+        <br><br>
         <div class="content">
             <!-- Police dashboard content goes here -->
-            <h2>Recent Reported Stolen Bicycles</h2>
+            <h2>Last 5 reports</h2>
             <!-- Display a list of recently reported stolen bicycles -->
             <?php
             // Fetch and display recently reported stolen bicycles from the database
-            $recentReports = fetchRecentReports();
+            $recentReports = $policeController->fetchRecentReports();
             if (!empty($recentReports)) {
                 echo "<table>";
-                echo "<tr><th>Brand</th><th>Model</th><th>Color</th><th>Serial Number</th><th>Report Date</th><th>Status</th></tr>";
+                echo "<tr><th>Brand</th><th>Model</th><th>Color</th><th>Serial Number</th><th>Reported Address</th><th>Report Date</th><th>Status</th></tr>";
                 foreach ($recentReports as $report) {
                     echo "<tr>";
                     echo "<td>" . $report['brand'] . "</td>";
                     echo "<td>" . $report['model'] . "</td>";
                     echo "<td>" . $report['color'] . "</td>";
                     echo "<td>" . $report['serial_number'] . "</td>";
+                    echo "<td>" . $report['address'] . "</td>";
                     echo "<td>" . $report['report_date'] . "</td>";
                     echo "<td>" . $report['status'] . "</td>";
                     echo "</tr>";
@@ -59,7 +64,7 @@ $first_name = $_SESSION['first_name'];
     </div>
 
     <!-- Include your JavaScript file -->
-    <script src="public/js/scripts.js"></script>
+    <script src="../../public/js/scripts.js"></script>
     <?php
         include '../layouts/footer.php';
     ?>

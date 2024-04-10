@@ -7,6 +7,7 @@ $adminController = new AdminController($conn);
 // Call the viewEnrolledOfficers method
 $adminController->viewEnrolledOfficers();
 $enrolledOfficers = $_SESSION['enrolled_police'];
+include '../layouts/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -43,5 +44,8 @@ $enrolledOfficers = $_SESSION['enrolled_police'];
 
     <!-- Include your JavaScript file -->
     <script src="../../public/js/scripts.js"></script>
+    <?php
+        include '../layouts/footer.php';
+    ?>
 </body>
 </html>

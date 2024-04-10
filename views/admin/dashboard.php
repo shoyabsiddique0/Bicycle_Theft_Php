@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-
+include '../layouts/header.php';
 // Get the admin's first name
 $first_name = $_SESSION['first_name'];
 ?>
@@ -37,5 +37,8 @@ $first_name = $_SESSION['first_name'];
 
     <!-- Include your JavaScript file -->
     <script src="../../public/js/scripts.js"></script>
+    <?php
+        include '../layouts/footer.php';
+    ?>
 </body>
 </html>

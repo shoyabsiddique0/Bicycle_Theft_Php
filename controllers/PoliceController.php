@@ -49,4 +49,48 @@ class PoliceController {
 
         require_once '../../views/police/search_reports.php';
     }
+    public function fetchRecentReports($days = 7) {
+        // Fetch recent reports from the model
+        $recentReports = $this->stolenBicycleModel->getRecentReports($days);
+
+        // Prepare the report data for display
+        $formattedReports = array();
+        foreach ($recentReports as $report) {
+            $formattedReport = array(
+                'id' => $report['id'],
+                'brand' => $report['brand'],
+                'model' => $report['model'],
+                'color' => $report['color'],
+                'serial_number' => $report['serial_number'],
+                'address' => $report['reported_address'],
+                'report_date' => date('Y-m-d', strtotime($report['report_date'])),
+                'status' => $report['status']
+            );
+            $formattedReports[] = $formattedReport;
+        }
+
+        return $formattedReports;
+    }
+
+    public function fetchReportedBicycles($filter = 'all') {
+        $reports = $this->stolenBicycleModel->getReportedBicycles($filter);
+
+        // Prepare the report data for display
+        $formattedReports = array();
+        foreach ($reports as $report) {
+            $formattedReport = array(
+                'id' => $report['id'],  
+                'brand' => $report['brand'],
+                'model' => $report['model'],
+                'color' => $report['color'],
+                'serial_number' => $report['serial_number'],
+                'address' => $report['reported_address'],
+                'report_date' => date('Y-m-d', strtotime($report['report_date'])),
+                'status' => $report['status']
+            );
+            $formattedReports[] = $formattedReport;
+        }
+
+        return $formattedReports;
+    }
 }

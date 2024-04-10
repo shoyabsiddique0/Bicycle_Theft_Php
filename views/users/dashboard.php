@@ -11,6 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 // Get the user's role from the session
 $role = $_SESSION['role'];
 $first_name = $_SESSION['first_name'];
+include '../layouts/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -30,12 +31,7 @@ $first_name = $_SESSION['first_name'];
                     <li><a href="../bicycle/register.php">Register Bicycle</a></li>
                     <li><a href="../bicycle/list.php">View Registered Bicycles</a></li>
                     <li><a href="../reports/create.php">Report Stolen Bicycle</a></li>
-                <?php } ?>
-                <?php if ($role === 'police' || $role === 'admin') { ?>
-                    <li><a href="list-reports">View Reported Stolen Bicycles</a></li>
-                <?php } ?>
-                <?php if ($role === 'admin') { ?>
-                    <li><a href="../admin/enroll_officer.php">Enroll Police Officers</a></li>
+                    <li><a href="../reports/list.php">View Stolen Bicycles</a></li>
                 <?php } ?>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
@@ -43,6 +39,9 @@ $first_name = $_SESSION['first_name'];
     </div>
 
     <!-- Include your JavaScript file -->
-    <script src="public/js/scripts.js"></script>
+    <script src="../../public/js/scripts.js"></script>
+    <?php
+        include '../layouts/footer.php';
+    ?>
 </body>
 </html>

@@ -12,6 +12,7 @@ require_once '../../config/config.php';
 $bicycle_controller = new BicycleController($conn);
 $bicycle_controller->listBicycles();
 $bicycles = $_SESSION['bicycles'];
+include '../layouts/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -56,6 +57,9 @@ $bicycles = $_SESSION['bicycles'];
     </div>
 
     <!-- Include your JavaScript file -->
-    <script src="public/js/scripts.js"></script>
+    <script src="../../public/js/scripts.js"></script>
+    <?php
+        include '../layouts/footer.php';
+    ?>
 </body>
 </html>

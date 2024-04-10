@@ -47,7 +47,7 @@ $userController->login();
     </div>
 
     <!-- Include your JavaScript file -->
-    <script src="public/js/scripts.js"></script>
+    <script src="../../public/js/scripts.js"></script>
     <?php
     include '../layouts/footer.php';
     ?>

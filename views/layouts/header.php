@@ -19,7 +19,7 @@
                     <ul class="navbar-nav ml-auto">
                         <?php if (isset($_SESSION['user_id'])) { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="dashboard.php">Dashboard</a>
+                                <a class="nav-link" href=<?php if ($_SESSION['role'] == 'public') echo "../users/dashboard.php"; else if($_SESSION['role'] == 'police') echo "../police/dashboard.php"; else echo "../admin/dashboard.php";?>>Dashboard</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../users/logout.php">Logout</a>

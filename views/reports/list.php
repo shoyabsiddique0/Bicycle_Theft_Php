@@ -17,6 +17,7 @@ $role = $_SESSION['role'];
 // }
 require_once '../../models/StolenBicycle.php';
 require_once '../../config/config.php';
+include '../layouts/header.php';
 $stolenBicycles = new StolenBicycle($conn);
 $stolenBicycles->getStolenBicycleReports();
 $data = $_SESSION['stolen_bicycle'];
@@ -61,6 +62,9 @@ $data = $_SESSION['stolen_bicycle'];
     </div>
 
     <!-- Include your JavaScript file -->
-    <script src="public/js/scripts.js"></script>
+    <script src="../../public/js/scripts.js"></script>
+    <?php
+        include '../layouts/footer.php';
+    ?>
 </body>
 </html>

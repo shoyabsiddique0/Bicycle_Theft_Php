@@ -10,6 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../controllers/ReportController.php';
 require_once '../../controllers/BicycleController.php';
 require_once '../../config/config.php';
+include '../layouts/header.php';
 $bicycle_controller = new BicycleController($conn);
 $bicycle_controller->listBicycles();
 $reportController = new ReportController($conn);
@@ -52,6 +53,9 @@ $reportController->reportStolenBicycle();
     </div>
 
     <!-- Include your JavaScript file -->
-    <script src="public/js/scripts.js"></script>
+    <script src="../../public/js/scripts.js"></script>
+    <?php
+        include '../layouts/footer.php';
+    ?>
 </body>
 </html>

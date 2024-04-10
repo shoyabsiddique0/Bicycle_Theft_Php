@@ -21,10 +21,6 @@ class UserController
             // Call the appropriate method from the User model to authenticate the user
             $user = $this->userModel->findByUsername($username);
             $pass = $user['password'];
-            $passn = password_hash($password, PASSWORD_DEFAULT);
-            $usern = $user['username'];
-            echo "<script>alert('$pass, $passn');</script>";
-            echo "<script>alert('$usern, $username');</script>";
             if ($user && password_verify($password, $user['password'])) {
                 // User authentication successful
                 session_start();

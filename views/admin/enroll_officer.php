@@ -6,6 +6,7 @@ $adminController = new AdminController($conn);
 
 // Call the enrollOfficer method
 $adminController->enrollOfficer();
+include '../layouts/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -30,5 +31,8 @@ $adminController->enrollOfficer();
 
     <!-- Include your JavaScript file -->
     <script src="../../public/js/scripts.js"></script>
+    <?php
+        include '../layouts/footer.php';
+    ?>
 </body>
 </html>

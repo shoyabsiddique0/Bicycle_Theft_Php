@@ -5,6 +5,7 @@ require_once '../../config/config.php';
 $adminController = new AdminController($conn);
 
 // Call the createCredentials method
+include '../layouts/header.php';
 $adminController->createCredentials();
 
 ?>
@@ -59,5 +60,8 @@ $adminController->createCredentials();
 
     <!-- Include your JavaScript file -->
     <script src="../../public/js/scripts.js"></script>
+    <?php
+        include '../layouts/footer.php';
+    ?>
 </body>
 </html>

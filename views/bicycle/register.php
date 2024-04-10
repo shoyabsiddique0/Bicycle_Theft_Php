@@ -9,6 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 require_once '../../controllers/BicycleController.php';
 require_once '../../config/config.php';
+include '../layouts/header.php';
 $bicycleController = new BicycleController($conn);
 $bicycleController->registerBicycle();
 ?>
@@ -51,6 +52,9 @@ $bicycleController->registerBicycle();
     </div>
 
     <!-- Include your JavaScript file -->
-    <script src="public/js/scripts.js"></script>
+    <script src="../../public/js/scripts.js"></script>
+    <?php
+        include '../layouts/footer.php';
+    ?>
 </body>
 </html>
