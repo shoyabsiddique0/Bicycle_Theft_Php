@@ -50,6 +50,7 @@ The project is organized into folders for better maintainability:
 1. Configure the database connection details in `config.php`.
 2. Import the database schema from `db/schema.sql` into your MySQL database.
 3. Place the project files on your web server's document root.
+4. Username and password for admin are `admin` and `admin123` respectively.
 
 **Additional Notes:**
 
