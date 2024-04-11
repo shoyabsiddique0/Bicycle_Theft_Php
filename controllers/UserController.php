@@ -27,10 +27,8 @@ class UserController
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['role'] = $user['role'];
                 $_SESSION['first_name'] = $user['first_name'];
-
                 // Redirect to the dashboard or desired page
                 if($user['role'] == 'public'){
-
                     header('Location: dashboard.php');
                 }
                 else if($user['role'] == 'admin'){

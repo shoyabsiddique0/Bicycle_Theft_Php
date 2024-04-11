@@ -26,7 +26,7 @@ $first_name = $_SESSION['first_name'];
         <p>Hello, <?php echo $first_name; ?>!</p>
         <nav>
             <ul>
-                <li><a href="enroll_officer.php">Enroll Police Officers</a></li>
+                <!-- <li><a href="enroll_officer.php">Enroll Police Officers</a></li> -->
                 <li><a href="create_credentials.php">Create Credentials</a></li>
                 <li><a href="enrolled_officers.php">View Enrolled Officers</a></li>
                 <li><a href="../users/logout.php">Logout</a></li>
